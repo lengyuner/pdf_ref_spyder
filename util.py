@@ -79,7 +79,10 @@ def process_ref_list(references_list):
         except:
             author = 'None'
             title = 'None'
-        year = re.findall('19[0-9]{2}|20[0-9]{2}', reference)[0]
+        try:
+            year = re.findall('19[0-9]{2}\.|20[0-9]{2}\.', reference)[-1]
+        except:
+            year = re.findall('19[0-9]{2}|20[0-9]{2}', reference)[-1]
         # print(year)
 
         # author_list.append(re.split('[a-z]\.|\?|\! ', reference)[0])
